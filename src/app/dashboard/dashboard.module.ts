@@ -7,29 +7,12 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
+import { HomeModule } from "./home/home.module";
 import { RouterModule } from "@angular/router";
-
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
-    RouterModule.forChild([
-      {
-        path: "",
-        component: DashboardComponent,
-        children: [
-          {
-            path: "home",
-            loadChildren: () =>
-              import("./home/home.module").then((res) => res.HomeModule),
-          },
-          {
-            path: "",
-            redirectTo: "home",
-            pathMatch: "full",
-          },
-        ],
-      },
-    ]),
+    HomeModule,
     CommonModule,
     LayoutModule,
     MatToolbarModule,
@@ -37,6 +20,8 @@ import { RouterModule } from "@angular/router";
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    RouterModule,
   ],
+  exports: [HomeModule, DashboardComponent],
 })
 export class DashboardModule {}

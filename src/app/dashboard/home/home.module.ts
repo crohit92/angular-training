@@ -7,17 +7,10 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { LayoutModule } from "@angular/cdk/layout";
-import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
-    RouterModule.forChild([
-      {
-        path: "",
-        component: HomeComponent,
-      },
-    ]),
     CommonModule,
     MatGridListModule,
     MatCardModule,
@@ -26,5 +19,6 @@ import { RouterModule } from "@angular/router";
     MatButtonModule,
     LayoutModule,
   ],
+  exports: [HomeComponent],
 })
 export class HomeModule {}

@@ -6,22 +6,15 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 
-const routes = [
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-];
-
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
   ],
-  exports: [RouterModule],
+  exports: [LoginComponent],
 })
 export class LoginModule {}
