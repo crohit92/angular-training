@@ -16,6 +16,18 @@ import { RouterModule } from "@angular/router";
       {
         path: "",
         component: DashboardComponent,
+        children: [
+          {
+            path: "home",
+            loadChildren: () =>
+              import("./home/home.module").then((res) => res.HomeModule),
+          },
+          {
+            path: "",
+            redirectTo: "home",
+            pathMatch: "full",
+          },
+        ],
       },
     ]),
     CommonModule,
