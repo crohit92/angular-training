@@ -7,7 +7,6 @@ import { Component, OnInit } from "@angular/core";
 })
 export class CalculatorComponent implements OnInit {
   expression = "";
-  constructor() {}
 
   ngOnInit(): void {}
   addToExpression(section: string) {
@@ -19,5 +18,8 @@ export class CalculatorComponent implements OnInit {
     } catch (error) {
       this.expression = "0";
     }
+  }
+  updateExpression(exp: string) {
+    this.expression = exp ?? "0";
   }
 }

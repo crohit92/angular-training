@@ -3,8 +3,9 @@
     <div class="mat-headline px-2">Calculator</div>
     <div class="px-2">
       <input
+        #expressionControl
         [value]="expression"
-        (change)="expression = $event.target.value"
+        (change)="updateExpression(expressionControl.value)"
         tabindex="0"
         class="screen px-2 py-4 border-0 w-full"
       />
@@ -61,4 +62,3 @@
     </div>
   </div>
 </div>
-{{ expression }}
