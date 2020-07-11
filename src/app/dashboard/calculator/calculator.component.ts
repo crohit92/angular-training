@@ -20,6 +20,6 @@ export class CalculatorComponent implements OnInit {
     }
   }
   updateExpression(exp: string) {
-    this.expression = exp ?? "0";
+    this.expression = exp;
   }
 }
