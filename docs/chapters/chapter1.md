@@ -43,5 +43,5 @@ Since this class is exported using `export` keyword, it is available to be impor
 |                 | They need to be a part of the final build                                            |
 | exports         | Used to export an imported `module` or declared `Component`, `Directive` or a `Pipe` |
 
-| ~~< Previous~~ | [Template binding >](./chapter2.md) |
-| -------------- | ----------------------------------- |
+| ~~< Previous~~ | [Schematics >](./chapter2.md) |
+| -------------- | ----------------------------- |

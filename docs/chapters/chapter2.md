@@ -1,50 +1,36 @@
-## Chapter-2: Template binding
+## Chapter-2: Schematics
 
-Template binding has three forms
+Schmatics are there to make our lives easy. They are a set of instructions to the angular CLI to 
+automate some redundant tasks.
 
-1. Property Binding
-2. Event Binding
-3. Interpolation
+Consider an example of adding a library into your Angular project. You have to follow some sequence of steps to achieve this and these steps are always the same for each project.
 
-### Property Binding
+This redundancy can be remove by using Schmatics. You can read more [here](https://angular.io/guide/schematics)
 
-Angular Alows us to bind expressions to native DOM properties. [See](https://angular.io/guide/template-syntax#data-binding-and-html) here for a complete doc.
+Now lets take an example of Angular material and lets see the steps to add it to a project with and without schematics
 
-For example: We can bind the value property of an input element with a property in our component class
-like: 
-```html
-<input [value]="myValue">
-```
+**Add Angular Material without Schmatics**
 
-Now if myValue is a string variable in our component, then any changes to `myValue` will change the value of the input element.
+| Step | Step Details                                                                                                             |
+| ---- | ------------------------------------------------------------------------------------------------------------------------ |
+| 1    | RUN `npm install --save @angular/material @angular/cdk @angular/animations`                                              |
+| 2    | ![](../images/add-material-step-2.png)                                                                                   |
+| 3    | Add `@import "~@angular/material/prebuilt-themes/indigo-pink.css";` to style.css                                         |
+| 4    | Add HammerJS for Gesture Support [See](https://v7.material.angular.io/guide/getting-started#step-5-gesture-support)      |
+| 5    | Add material icon support [See](https://v7.material.angular.io/guide/getting-started#step-6-optional-add-material-icons) |
 
-### Event Binding
+**Add Angular Material using Schematics**
 
-Same as Property binding, Angular wraps all the native DOM events using the event binding syntax.
+| Step | Step Details                   |
+| ---- | ------------------------------ |
+| 1    | RUN `ng add @angular/material` |
 
-For example: The most common event which is used in event noraml apps is the click event.
-```html
-<button (click)="updateMyValue('Rohit')">Save</button>
-```
+That's it! We added Angular Material with one single command
 
-**Assuming the below implementation of the greet method**
+There are two types of Schematics, One used with `ng add` and the other used with `ng generate`. You can read more about these [here](https://angular.io/guide/schematics)
 
-```ts
-greet(updatedValue:string) {
-    this.myValue = updatedValue;
-}
-```
+| [< Building blocks of an Angular App](./chapter1.md) | [Create First Angular Component >](./chapter3.md) |
+| ---------------------------------------------------- | ------------------------------------------------- |
 
-### Interpolation
 
-Angular allows us to write inline expressions in HTML which are interpolated on runtime.
 
-For eg. 
-```html
-<span>{{myValue}}</span>
-```
-Using the above in HTML, we will get the value of the property `myValue` in the template.
-Everytime the property changes, its value will be updated in the template by the Change detector.
-
-| [< Building blocks of an Angular App](./chapter1.md) |  ~~Next >~~   |
-| ---------------------------------------------------- | --- |
