@@ -11,48 +11,14 @@
       />
     </div>
     <div class="keypad flex flex-wrap justify-between">
-      <button class="button border p-4" (click)="addToExpression('1')">
-        1
+      <button
+        *ngFor="let button of buttons"
+        class="button border p-4"
+        (click)="addToExpression(button)"
+      >
+        {{ button }}
       </button>
-      <button class="button border p-4" (click)="addToExpression('2')">
-        2
-      </button>
-      <button class="button border p-4" (click)="addToExpression('3')">
-        3
-      </button>
-      <button class="button border p-4" (click)="addToExpression('+')">
-        +
-      </button>
-      <button class="button border p-4" (click)="addToExpression('4')">
-        4
-      </button>
-      <button class="button border p-4" (click)="addToExpression('5')">
-        5
-      </button>
-      <button class="button border p-4" (click)="addToExpression('6')">
-        6
-      </button>
-      <button class="button border p-4" (click)="addToExpression('-')">
-        -
-      </button>
-      <button class="button border p-4" (click)="addToExpression('7')">
-        7
-      </button>
-      <button class="button border p-4" (click)="addToExpression('8')">
-        8
-      </button>
-      <button class="button border p-4" (click)="addToExpression('9')">
-        9
-      </button>
-      <button class="button border p-4" (click)="addToExpression('*')">
-        *
-      </button>
-      <button class="button border p-4" (click)="addToExpression('0')">
-        0
-      </button>
-      <button class="button border p-4" (click)="addToExpression('/')">
-        /
-      </button>
+
       <button class="button border p-4" (click)="evaluate()">
         <b>=</b>
       </button>
