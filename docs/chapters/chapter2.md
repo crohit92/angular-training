@@ -43,8 +43,8 @@ For eg.
 ```html
 <span>{{myValue}}</span>
 ```
+Using the above in HTML, we will get the value of the property `myValue` in the template.
+Everytime the property changes, its value will be updated in the template by the Change detector.
 
-Now us use the above property binding, event binding and this interpolation in the same example
-
-| [< Building blocks of an Angular App](./chapter1.md) |     |
+| [< Building blocks of an Angular App](./chapter1.md) |  ~~Next >~~   |
 | ---------------------------------------------------- | --- |
