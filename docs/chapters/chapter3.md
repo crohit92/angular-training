@@ -67,3 +67,27 @@ and then add LoginModule to the imports array on the AppModule
 
 Now if you navigate to "http://localhost:4200/login" you should start to see the component which you created.
 
+
+Now if we look at the template of the login component, we will see some interesting things.
+
+```html
+<mat-form-field class="w-full">
+  <input matInput placeholder="Username" value="someone@mail.com" />
+</mat-form-field>
+```
+
+Notice the input element has a value property set to a default value
+
+```html
+<mat-form-field class="w-full">
+  <input
+    matInput
+    type="password"
+    placeholder="Password"
+    value="someone_password"
+  />
+</mat-form-field>
+```
+
+Same is with the password input element
+
