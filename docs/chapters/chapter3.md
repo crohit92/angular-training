@@ -91,3 +91,7 @@ Notice the input element has a value property set to a default value
 
 Same is with the password input element
 
+
+|[< Schematics](./chapter2.md)|[Template binding >](./chapter4.md)|
+| --------------------------- | --------------------------------- |
+

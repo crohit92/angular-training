@@ -8,32 +8,26 @@ Template binding has three forms
 
 ### Property Binding
 
-Angular Alows us to bind expressions to native DOM properties. [See](https://angular.io/guide/template-syntax#data-binding-and-html) here for a complete doc.
+Angular Allows us to bind expressions to native DOM properties. [See](https://angular.io/guide/template-syntax#data-binding-and-html) here for a complete doc.
 
 For example: We can bind the value property of an input element with a property in our component class
 like: 
 ```html
-<input [value]="myValue">
+<input [value]="expression">
 ```
 
-Now if myValue is a string variable in our component, then any changes to `myValue` will change the value of the input element.
+Now if expression is a string variable in our component, then any changes to `expression` will change the value of the input element.
 
 ### Event Binding
 
 Same as Property binding, Angular wraps all the native DOM events using the event binding syntax.
 
-For example: The most common event which is used in event noraml apps is the click event.
+For example: The most common event which is used in every app is the click event.
 ```html
-<button (click)="updateMyValue('Rohit')">Save</button>
+<button (click)="evaluate()">Evaluate</button>
 ```
 
-**Assuming the below implementation of the greet method**
-
-```ts
-greet(updatedValue:string) {
-    this.myValue = updatedValue;
-}
-```
+Clicking on this button will invoke the evaluate method in our component class
 
 ### Interpolation
 
@@ -41,10 +35,12 @@ Angular allows us to write inline expressions in HTML which are interpolated on 
 
 For eg. 
 ```html
-<span>{{myValue}}</span>
+<span> {{ button }}</span>
 ```
-Using the above in HTML, we will get the value of the property `myValue` in the template.
-Everytime the property changes, its value will be updated in the template by the Change detector.
 
-| [< Building blocks of an Angular App](./chapter1.md) | ~~Next >~~ |
+If we have an array of strings where each string represent the label of a button, we can iterate over that array and in each iteration we can display the label using the above syntax.
+
+For an example of template binding lets see a calculator component [here](./../../src/app/dashboard/calculator)
+
+| [< Create First Angular Component](./chapter3.md) | ~~Next >~~ |
 | ---------------------------------------------------- | ---------- |
