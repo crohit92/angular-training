@@ -7,7 +7,7 @@ For Eg.
 <input type="tel" [value]="expression">
 ```
 
-In the above snippet, when I change the expression variable the value property of the input also changes. but when I change the value in the input property by typing somthing directly into the input element, the expression variable does not change.
+In the above snippet, when I change the expression variable, the value property of the input also changes. but when I change the value in the input property by typing somthing directly into the input element, the expression variable does not change.
 
 If it had changed, it would be referred as **Two way data binding**
 
