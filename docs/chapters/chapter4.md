@@ -42,5 +42,5 @@ If we have an array of strings where each string represent the label of a button
 
 For an example of template binding lets see a calculator component [here](./../../src/app/dashboard/calculator)
 
-| [< Create First Angular Component](./chapter3.md) | ~~Next >~~ |
+| [< Create First Angular Component](./chapter3.md) | [Two way data binding >](./chapter5.md) |
 | ---------------------------------------------------- | ---------- |
