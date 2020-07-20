@@ -2,13 +2,7 @@
   <div class="container border calculator-container p-3">
     <div class="mat-headline px-2">Calculator</div>
     <div class="px-2">
-      <input
-        #expressionControl
-        [value]="expression"
-        (change)="updateExpression(expressionControl.value)"
-        tabindex="0"
-        class="screen px-2 py-4 border-0 w-full"
-      />
+      <ngt-result-screen [(model)]="expression"></ngt-result-screen>
     </div>
     <div class="keypad flex flex-wrap justify-between">
       <button
@@ -28,3 +22,4 @@
     </div>
   </div>
 </div>
+{{ expression }}
