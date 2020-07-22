@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { ResultSelectorComponent } from "./result-selector.component";
+import { ResultScreenComponent } from "./result-screen.component";
 @NgModule({
-  declarations: [ResultSelectorComponent],
+  declarations: [ResultScreenComponent],
   imports: [FormsModule],
-  exports: [ResultSelectorComponent],
+  exports: [ResultScreenComponent],
 })
 export class ResultScreenModule {}

@@ -10,7 +10,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
     class="screen px-2 py-4 border-0 w-full"
   />`,
 })
-export class ResultSelectorComponent {
+export class ResultScreenComponent {
   @Input() model!: string;
   @Output() modelChange = new EventEmitter<string>();
 }

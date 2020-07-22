@@ -47,3 +47,6 @@ The ngModel directive has an Input property called *ngModelChange*. By conventio
 
 More about this in the next chapter.
 
+| [< Template binding](./chapter4.md) | [Communication between components >](./chapter6.md) |
+| ----------------------------------- | --------------------------------------------------- |
+
