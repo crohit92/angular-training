@@ -8,10 +8,9 @@ This course is a beginer to advanced MEAN stack programme. In this course we wil
 * Angular
 * Express JS (Node JS)
 * MongoDB
-
-Throughout the course candidates will have to solve various assignments. Along with the above mentioned technologies, candidates will learn the best tools which are followed in the industry like: 
-
 * Basics of Git
+
+Throughout the course candidates will have to solve various assignments.
 
 ## Course Content
 
