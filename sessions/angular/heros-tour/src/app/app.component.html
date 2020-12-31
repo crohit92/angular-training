@@ -1,2 +1,2 @@
 <h1 class="section">Hello World - {{envName}}</h1>
-<!-- <app-hero></app-hero> -->
+<app-heros [hero]="myHero" (changeHeroName)="log($event)"></app-heros>

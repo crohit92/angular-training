@@ -1,0 +1,8 @@
+<div class="container" *ngIf="hero">
+  <div class="id"> {{hero.id}} </div>
+  <div class="name">
+    <!-- <input type="text" (keyup)="hero.name = $event.target.value" [value]="hero.name"> {{hero.name}} -->
+    <input type="text" (change)="onHeroNameChnage()" [(ngModel)]="hero.name"> {{hero.name}}
+  </div>
+  <button (click)="changeName()">Change Name</button>
+</div>

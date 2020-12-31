@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { environment } from "../environments/environment";
+import { Hero } from './heros/hero';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,4 +10,11 @@ import { environment } from "../environments/environment";
 export class AppComponent {
   title = 'heros-tour';
   envName = environment.name;
+  myHero: Hero = {
+    id: 2,
+    name: "Jorav"
+  };
+  log(name: string) {
+    console.log(name);
+  }
 }
