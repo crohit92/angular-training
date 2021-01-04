@@ -8,12 +8,12 @@ import { Hero } from './heros/hero';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class AppComponent {
-  title = 'heros-tour';
-  envName = environment.name;
-  myHero: Hero = {
-    id: 2,
-    name: "Jorav"
-  };
+
+  // envName = environment.name;
+  // myHero: Hero = {
+  //   id: 2,
+  //   name: "Jorav"
+  // };
   log(name: string) {
     console.log(name);
   }

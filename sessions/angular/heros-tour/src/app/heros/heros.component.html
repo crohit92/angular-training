@@ -1,8 +1,15 @@
-<div class="container" *ngIf="hero">
-  <div class="id"> {{hero.id}} </div>
-  <div class="name">
-    <!-- <input type="text" (keyup)="hero.name = $event.target.value" [value]="hero.name"> {{hero.name}} -->
-    <input type="text" (change)="onHeroNameChnage()" [(ngModel)]="hero.name"> {{hero.name}}
+<div class="conatainer">
+  <div class="hero" [class.selected-hero]="selectedHero === hero" (click)="selectedHero = hero"
+    *ngFor="let hero of heros">
+    <div class="hero__id">{{hero.id}}</div>
+    <div class="hero__name">{{hero.name}}</div>
   </div>
-  <button (click)="changeName()">Change Name</button>
+  <div class="editor" *ngIf="!!selectedHero">
+    <div class="editor__hero--id">
+      <input [(ngModel)]="selectedHero.id">
+    </div>
+    <div class="editor__hero--name">
+      <input [(ngModel)]="selectedHero.name">
+    </div>
+  </div>
 </div>
