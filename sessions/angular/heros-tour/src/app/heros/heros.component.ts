@@ -1,6 +1,8 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { combineLatest, fromEvent } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Hero } from './hero';
+import { HeroesService } from "./heroes.service";
 @Component({
   selector: 'app-heros',
   templateUrl: './heros.component.html',
@@ -8,43 +10,27 @@ import { Hero } from './hero';
 })
 export class HerosComponent implements OnInit {
 
-  heros: Hero[] = [
-    {
-      id: 1,
-      name: "ABC"
-    },
-    {
-      id: 2,
-      name: "BED"
-    },
-    {
-      id: 3,
-      name: "CGF"
-    },
-    {
-      id: 4,
-      name: "GBE"
-    },
-    {
-      id: 5,
-      name: "HTJ"
-    },
-    {
-      id: 6,
-      name: "GHT"
-    },
-  ]
+  heroes: Hero[];
   selectedHero: Hero;
-  // @Input() hero: Hero;
-  // @Output() changeHeroName = new EventEmitter<string>();
-  constructor() {
+  constructor(heroService: HeroesService) {
+    heroService.getHeros().subscribe(heroes => {
+      this.heroes = heroes;
+    });
   }
 
-  // changeName() {
-  //   this.hero.name = 'Jorav'
-  // }
   ngOnInit(): void {
     console.log("Component Initialized");
+    // document.addEventListener("click", (ev) => {
+    //   console.log(ev);
+    // });
+    // combineLatest([
+    // fromEvent(document, "click"),
+    fromEvent(document, "keydown")
+      // ])
+      .pipe(map(ev => (ev as any).keyCode * 2))
+      .subscribe(char => {
+        console.log(char);
+      })
   }
 
   // onHeroNameChnage() {
