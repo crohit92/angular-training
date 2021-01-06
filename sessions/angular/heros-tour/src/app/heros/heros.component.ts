@@ -1,8 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { combineLatest, fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { MessagesService } from '../core/services/messages.service';
 import { Hero } from './hero';
 import { HeroesService } from "./heroes.service";
+
+export class Test { }
+
 @Component({
   selector: 'app-heros',
   templateUrl: './heros.component.html',
@@ -12,7 +17,10 @@ export class HerosComponent implements OnInit {
 
   heroes: Hero[];
   selectedHero: Hero;
-  constructor(heroService: HeroesService) {
+  constructor(heroService: HeroesService,
+    @Inject(Test) messages
+  ) {
+    debugger;
     heroService.getHeros().subscribe(heroes => {
       this.heroes = heroes;
     });
@@ -20,17 +28,6 @@ export class HerosComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("Component Initialized");
-    // document.addEventListener("click", (ev) => {
-    //   console.log(ev);
-    // });
-    // combineLatest([
-    // fromEvent(document, "click"),
-    fromEvent(document, "keydown")
-      // ])
-      .pipe(map(ev => (ev as any).keyCode * 2))
-      .subscribe(char => {
-        console.log(char);
-      })
   }
 
   // onHeroNameChnage() {
