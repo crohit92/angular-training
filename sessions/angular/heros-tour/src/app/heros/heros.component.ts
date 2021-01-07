@@ -11,17 +11,18 @@ export class Test { }
 @Component({
   selector: 'app-heros',
   templateUrl: './heros.component.html',
-  styleUrls: ['./heros.component.scss']
+  styleUrls: ['./heros.component.scss'],
+  providers: [MessagesService, HeroesService]
 })
 export class HerosComponent implements OnInit {
 
   heroes: Hero[];
   selectedHero: Hero;
   constructor(heroService: HeroesService,
-    @Inject(Test) messages
+    public messagesService: MessagesService
   ) {
-    debugger;
     heroService.getHeros().subscribe(heroes => {
+      messagesService.add("Heros Fetched");
       this.heroes = heroes;
     });
   }
@@ -30,8 +31,9 @@ export class HerosComponent implements OnInit {
     console.log("Component Initialized");
   }
 
-  // onHeroNameChnage() {
-  //   this.changeHeroName.next(this.hero.name);
-  // }
+  onHeroSelected(hero: Hero) {
+    this.selectedHero = hero;
+    this.messagesService.add(`Hero ${hero.name} is selected`);
+  }
 
 }

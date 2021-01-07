@@ -2,14 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HerosComponent, Test } from './heros/heros.component';
+import { HerosComponent } from './heros/heros.component';
 import { FormsModule } from '@angular/forms';
 
 import { HeroDetailsComponent } from "./hero-details/hero-details.component";
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesService } from "./core/services/messages.service"
-import { environment } from 'src/environments/environment';
-import { Forecast } from './core/services/forecast/forecast.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,12 +19,43 @@ import { Forecast } from './core/services/forecast/forecast.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(
+      [
+        {
+          path: "",
+          component: HerosComponent
+        },
+        {
+          path: "this-is-funny",
+          component: HerosComponent
+        },
+        {
+          path: ":id",
+          component: HeroDetailsComponent
+        }
+      ]
+      // [
+      // {
+      //   path: "",
+      //   component: AppComponent,
+      //   children: [
+      //     {
+      //       path: "",
+      //       component: HerosComponent
+      //     },
+      //     {
+      //       path: ":id",
+      //       component: HeroDetailsComponent
+      //     }
+      //   ]
+      // },
+
+      // ]
+    )
   ],
-  providers: [{
-    provide: Test,
-    useClass: environment.production ? MessagesService : Forecast
-  }],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

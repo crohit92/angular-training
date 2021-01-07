@@ -13,25 +13,8 @@ import { ForecastMock } from "./core/services/forecast/forecast-mock.service";
 export class AppComponent {
 
   constructor() {
-    let forecastService: IForecast;
-    const DIContainer = {
-      Forecast: ForecastMock
-    };
-
-    forecastService = new DIContainer["Forecast"]();
-    console.log(forecastService.getForecast("", new Date()));
-    // if (environment.production) {
-    //   forecastService = new Forecast();
-    // } else {
-    //   forecastService = new ForecastMock();
-    // }
 
   }
-  // envName = environment.name;
-  // myHero: Hero = {
-  //   id: 2,
-  //   name: "Jorav"
-  // };
   log(name: string) {
     console.log(name);
   }

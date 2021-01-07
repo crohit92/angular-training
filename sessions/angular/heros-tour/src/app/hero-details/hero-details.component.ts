@@ -1,5 +1,8 @@
 import { Component, Input } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { MessagesService } from "../core/services/messages.service";
 import { Hero } from "../heros/hero";
+import { HeroesService } from "../heros/heroes.service";
 
 @Component({
   selector: "app-hero-details",
@@ -11,7 +14,7 @@ import { Hero } from "../heros/hero";
         <input [(ngModel)]="hero.id">
       </div>
       <div class="editor__hero--name">
-        <input [(ngModel)]="hero.name">
+        <input (change)="onHeroNameChange()" [(ngModel)]="hero.name">
       </div>
     </div>
   </div>
@@ -28,8 +31,22 @@ import { Hero } from "../heros/hero";
       border: 1px solid grey;
     }
     `
-  ]
+  ],
+  providers: [MessagesService, HeroesService]
 })
 export class HeroDetailsComponent {
-  @Input() hero: Hero;
+  hero: Hero;
+  constructor(public messagesService: MessagesService,
+    private route: ActivatedRoute,
+    private herosService: HeroesService) {
+    this.route.paramMap.subscribe(params => {
+      this.herosService.getHero(+params.get("id")).subscribe(hero => {
+        this.hero = hero;
+      })
+    })
+  }
+
+  onHeroNameChange() {
+    this.messagesService.add(`Name of the hero changed to: ${this.hero.name}`);
+  }
 }

@@ -1,8 +1,7 @@
 <div class="conatainer">
-  <div class="hero" [class.selected-hero]="selectedHero === hero" (click)="selectedHero = hero"
-    *ngFor="let hero of heroes">
+  <div class="hero" [class.selected-hero]="selectedHero === hero" (click)="onHeroSelected(hero)"
+    *ngFor="let hero of heroes" routerLink="./{{hero.id}}">
     <div class="hero__id">{{hero.id}}</div>
     <div class="hero__name">{{hero.name}}</div>
   </div>
-  <app-hero-details [hero]="selectedHero"></app-hero-details>
 </div>
