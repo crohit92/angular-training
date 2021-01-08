@@ -40,7 +40,7 @@ export class HeroDetailsComponent {
     private route: ActivatedRoute,
     private herosService: HeroesService) {
     this.route.paramMap.subscribe(params => {
-      this.herosService.getHero(+params.get("id")).subscribe(hero => {
+      this.herosService.getHero(params.get("id")).subscribe(hero => {
         this.hero = hero;
       })
     })

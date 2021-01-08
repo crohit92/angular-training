@@ -4,18 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HerosComponent } from './heros/heros.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 import { HeroDetailsComponent } from "./hero-details/hero-details.component";
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesService } from "./core/services/messages.service"
 import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HerosComponent,
     HeroDetailsComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -24,14 +27,19 @@ import { RouterModule } from '@angular/router';
       [
         {
           path: "",
-          component: HerosComponent
+          redirectTo: "dashboard",
+          pathMatch: "full"
         },
         {
-          path: "this-is-funny",
-          component: HerosComponent
+          path: "dashboard",
+          component: DashboardComponent
         },
         {
-          path: ":id",
+          path: "heroes",
+          component: HerosComponent,
+        },
+        {
+          path: "heroes/:id",
           component: HeroDetailsComponent
         }
       ]
@@ -52,7 +60,8 @@ import { RouterModule } from '@angular/router';
       // },
 
       // ]
-    )
+    ),
+    HttpClientModule
   ],
   providers: [
   ],

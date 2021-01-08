@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
-import { Observable, of } from "rxjs";
+import { Observable, of, from } from "rxjs";
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class HeroesService {
@@ -31,7 +33,7 @@ export class HeroesService {
       name: "GHT"
     },
   ]
-  constructor() {
+  constructor(private http: HttpClient) {
     console.log("Initialted");
   }
 
@@ -40,10 +42,29 @@ export class HeroesService {
   }
 
   getHeros(): Observable<Hero[]> {
-    return of(this.HEROS)
+    return this.http.get("https://api.github.com/users/joravkumar/repos").pipe(
+      map((res: any[]) => res.map(repo => {
+        return { id: repo.name, name: repo.name };
+      }))
+    )
+    // return from(
+    //   fetch("https://api.github.com/users/joravkumar/repos").then(res => res.json())
+    // )
+    //   .pipe(
+    //     map(res => res.map(repo => {
+    //       return { id: repo.name, name: repo.name };
+    //     }))
+    //   );
+    // return of(this.HEROS)
   }
 
-  getHero(id: number): Observable<Hero> {
-    return of(this.HEROS.find(h => h.id === id));
+  getHero(id: string): Observable<Hero> {
+    // return from(
+    //   fetch(`https://api.github.com/repos/joravkumar/${id}`).then(res => res.json())
+    // )
+    return this.http.get(`https://api.github.com/repos/joravkumar/${id}`)
+      .pipe(
+        map((res: any) => ({ id: res.id, name: res.name }))
+      );
   }
 }
