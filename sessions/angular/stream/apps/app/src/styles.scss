@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./scss/bootstrap-overrides.scss";
+@import "bootstrap/scss/bootstrap.scss";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
