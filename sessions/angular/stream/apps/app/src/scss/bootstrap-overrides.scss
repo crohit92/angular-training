@@ -1,3 +1,13 @@
-// $theme-colors: (
-//   "primary":grey
-// )
+@import "./theme.scss";
+$theme-colors: (
+  "primary": map-get($map: $app-primary, $key: default),
+  "primary-dark": map-get($map: $app-primary, $key: darker),
+  "primary-light": map-get($map: $app-primary, $key: lighter),
+  "secondary": map-get($map: $app-accent, $key: default),
+  "secondary-dark": map-get($map: $app-accent, $key: darker),
+  "secondary-light": map-get($map: $app-accent, $key: lighter),
+  "danger": map-get($map: $app-warn, $key: default),
+  "danger-dark": map-get($map: $app-warn, $key: darker),
+  "danger-light": map-get($map: $app-warn, $key: lighter),
+
+)

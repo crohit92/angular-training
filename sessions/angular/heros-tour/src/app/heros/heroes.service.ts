@@ -9,27 +9,27 @@ export class HeroesService {
 
   HEROS = [
     {
-      id: 3,
+      id: '1',
       name: "GDB"
     },
     {
-      id: 2,
+      id: '2',
       name: "BED"
     },
     {
-      id: 3,
+      id: '3',
       name: "CGF"
     },
     {
-      id: 4,
+      id: '4',
       name: "GBE"
     },
     {
-      id: 5,
+      id: '5',
       name: "HTJ"
     },
     {
-      id: 6,
+      id: '6',
       name: "GHT"
     },
   ]
@@ -42,11 +42,11 @@ export class HeroesService {
   }
 
   getHeros(): Observable<Hero[]> {
-    return this.http.get("https://api.github.com/users/joravkumar/repos").pipe(
-      map((res: any[]) => res.map(repo => {
-        return { id: repo.name, name: repo.name };
-      }))
-    )
+    // return this.http.get("https://api.github.com/users/joravkumar/repos").pipe(
+    //   map((res: any[]) => res.map(repo => {
+    //     return { id: repo.name, name: repo.name };
+    //   }))
+    // )
     // return from(
     //   fetch("https://api.github.com/users/joravkumar/repos").then(res => res.json())
     // )
@@ -55,16 +55,18 @@ export class HeroesService {
     //       return { id: repo.name, name: repo.name };
     //     }))
     //   );
-    // return of(this.HEROS)
+    return of(this.HEROS)
   }
 
   getHero(id: string): Observable<Hero> {
     // return from(
     //   fetch(`https://api.github.com/repos/joravkumar/${id}`).then(res => res.json())
     // )
-    return this.http.get(`https://api.github.com/repos/joravkumar/${id}`)
-      .pipe(
-        map((res: any) => ({ id: res.id, name: res.name }))
-      );
+    // return this.http.get(`https://api.github.com/repos/joravkumar/${id}`)
+    //   .pipe(
+    //     map((res: any) => ({ id: res.id, name: res.name }))
+    //   );
+
+    return of(this.HEROS.find(h => h.id === id));
   }
 }

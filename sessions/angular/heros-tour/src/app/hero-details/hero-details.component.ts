@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MessagesService } from "../core/services/messages.service";
 import { Hero } from "../heros/hero";
 import { HeroesService } from "../heros/heroes.service";
@@ -18,6 +18,7 @@ import { HeroesService } from "../heros/heroes.service";
       </div>
     </div>
   </div>
+  <input placeholder="Change Hero ID" #updatedHeroIdEl (change)="changeHeroId(updatedHeroIdEl.value)">
   `,
   styles: [
     `
@@ -38,15 +39,37 @@ export class HeroDetailsComponent {
   hero: Hero;
   constructor(public messagesService: MessagesService,
     private route: ActivatedRoute,
+    private router: Router,
     private herosService: HeroesService) {
+
+    this.herosService.getHero(this.route.snapshot.params.id).subscribe(hero => {
+      this.hero = hero;
+    });
     this.route.paramMap.subscribe(params => {
       this.herosService.getHero(params.get("id")).subscribe(hero => {
         this.hero = hero;
       })
     })
+    // this.herosService.getHero(this.route.snapshot.queryParams.id).subscribe(hero => {
+    //   this.hero = hero;
+    // });
+    this.route.queryParamMap.subscribe(params => {
+      console.log(params.get("name"));
+    })
   }
 
   onHeroNameChange() {
     this.messagesService.add(`Name of the hero changed to: ${this.hero.name}`);
+  }
+
+  changeHeroId(id: string) {
+    if (id) {
+      this.router.navigate(["../", id], {
+        relativeTo: this.route,
+        queryParams: {
+          name: (Math.random() * 1000) + id
+        }
+      });
+    }
   }
 }
