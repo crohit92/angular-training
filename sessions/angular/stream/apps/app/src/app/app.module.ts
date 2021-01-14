@@ -6,11 +6,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, DashboardComponent, LoginComponent],
   imports: [BrowserModule,
-    MatButtonModule,
+    MatInputModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: 'login',
