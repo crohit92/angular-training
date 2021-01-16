@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Credentials } from '../../shared/models/credentials';
+import { StorageService } from '../core/services/storage/storage.service';
 import { LoginService } from './login.service';
 
 @Component({
@@ -11,7 +13,9 @@ export class LoginComponent {
 
   passwordVisible = false;
   credentials: Credentials;
-  constructor(private readonly loginService: LoginService) {
+  constructor(private readonly loginService: LoginService,
+    private storage: StorageService,
+    private router: Router) {
     this.credentials = new Credentials();
 
   }
@@ -19,7 +23,8 @@ export class LoginComponent {
   login() {
     this.loginService.login(this.credentials).subscribe((user) => {
       // todo;
-      console.log(user)
+      this.storage.set('user', user);
+      this.router.navigate(['/dashboard']);
     })
   }
 

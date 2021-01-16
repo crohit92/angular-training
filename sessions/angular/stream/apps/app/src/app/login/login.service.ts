@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { User } from '../../shared/models/user';
+import { User, UserRole } from '../../shared/models/user';
 import { Credentials } from '../../shared/models/credentials';
 
 @Injectable({
@@ -10,7 +10,8 @@ export class LoginService {
   private user: User = {
     id: 1,
     name: 'Jorav',
-    username: 'joravkumar'
+    username: 'joravkumar',
+    role: UserRole.Client
   };
 
   login(credentials: Credentials): Observable<User> {
