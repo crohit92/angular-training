@@ -1,0 +1,16 @@
+@mixin stream-dashboard($theme) {
+  .stream-dashboard {
+    @include media-breakpoint-up(md) {
+      .menu-toggle-btn {
+        display: none;
+      }
+    }
+  }
+}
+// .stream-dashboard {
+//   .menu-toggle-btn {
+//     display: none;
+//   }
+//   // @include media-breakpoint-up(md) {
+//   // }
+// }
