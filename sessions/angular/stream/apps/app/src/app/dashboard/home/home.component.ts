@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'stream-home',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  workshops$: Observable<any>;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.workshops$ = this.http.get('./assets/workshops/workshops.json');
   }
 
 }

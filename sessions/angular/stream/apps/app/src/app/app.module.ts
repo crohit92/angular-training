@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -12,13 +13,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { DasboardCanAvtivate } from './dashboard/dashboard.guard';
 import { HomeComponent } from './dashboard/home/home.component';
+import { OverviewComponent } from './dashboard/overview/overview.component';
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, LoginComponent, HomeComponent],
+  declarations: [AppComponent, DashboardComponent, LoginComponent, HomeComponent, OverviewComponent],
   imports: [BrowserModule,
     MatInputModule,
     MatToolbarModule,
     FormsModule,
     MatButtonModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: 'login',
@@ -31,6 +34,10 @@ import { HomeComponent } from './dashboard/home/home.component';
           {
             path: 'home',
             component: HomeComponent
+          },
+          {
+            path: 'overview/:id',
+            component: OverviewComponent
           },
           {
             path: '',

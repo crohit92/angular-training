@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="stream-home">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let workshop of workshops$ | async" [routerLink]="['../overview',workshop.id]"
+        class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="workshop border rounded my-2 p-3">
+          <img [src]="workshop.image" class="mw-100">
+          <div class="workshop__title text-primary border-bottom">{{workshop.title}}</div>
+          <div class="workshop__description">{{workshop.description}}</div>
+          <button class="btn btn-primary">{{workshop.price | currency : 'INR'}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

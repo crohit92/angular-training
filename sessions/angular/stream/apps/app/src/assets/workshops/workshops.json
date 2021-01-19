@@ -1,0 +1,58 @@
+[
+  {
+    "id":1,
+    "title":"Workshop 1",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":4000
+  },
+  {
+    "id":2,
+    "title":"Workshop 2",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":5000
+  },
+  {
+    "id":1,
+    "title":"Workshop 1",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":4000
+  },
+  {
+    "id":2,
+    "title":"Workshop 2",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":5000
+  },
+  {
+    "id":1,
+    "title":"Workshop 1",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":4000
+  },
+  {
+    "id":2,
+    "title":"Workshop 2",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":5000
+  },
+  {
+    "id":1,
+    "title":"Workshop 1",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":4000
+  },
+  {
+    "id":2,
+    "title":"Workshop 2",
+    "description":"Random description",
+    "image":"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
+    "price":5000
+  }
+]
