@@ -1,1 +1,24 @@
-<p>overview works!</p>
+<div class="stream-overview">
+  <div class="container-fluid">
+    <div class="row mb-3 bg-grey p-3">
+      <div id="videoContainer" class="col-12 col-md-6 order-1 order-md-2" [innerHTML]="workshop?.videoEmbed">
+      </div>
+      <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="workshop">
+          <div>
+            <h1 class="workshop__title mat-h3">{{workshop?.title}}</h1>
+            <div class="workshop__description mat-body">{{workshop?.subtitle}}</div>
+          </div>
+          <div class="price d-flex">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mat-body font-weight-bold">
+        <div class="border rounded p-3" [innerHTML]="workshop?.description">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

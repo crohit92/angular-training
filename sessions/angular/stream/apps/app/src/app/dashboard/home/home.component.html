@@ -6,7 +6,7 @@
         <div class="workshop border rounded my-2 p-3">
           <img [src]="workshop.image" class="mw-100">
           <div class="workshop__title text-primary border-bottom">{{workshop.title}}</div>
-          <div class="workshop__description">{{workshop.description}}</div>
+          <div class="workshop__description">{{workshop.subtitle}}</div>
           <button class="btn btn-primary">{{workshop.price | currency : 'INR'}}</button>
         </div>
       </div>
