@@ -9,8 +9,7 @@ $theme-colors: (
   "danger": map-get($map: $app-warn, $key: default),
   "danger-dark": map-get($map: $app-warn, $key: darker),
   "danger-light": map-get($map: $app-warn, $key: lighter),
-  "light": #efefef
-  "dark": #efefef
+  "grey": #efefef
 );
 // $grid-breakpoints: (
 
