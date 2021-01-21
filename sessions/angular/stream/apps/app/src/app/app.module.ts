@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { DasboardCanAvtivate } from './dashboard/dashboard.guard';
 import { HomeComponent } from './dashboard/home/home.component';
@@ -22,6 +23,7 @@ import { OverviewComponent } from './dashboard/overview/overview.component';
     FormsModule,
     MatButtonModule,
     HttpClientModule,
+    MatSnackBarModule,
     RouterModule.forRoot([
       {
         path: 'login',

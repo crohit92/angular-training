@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Credentials } from '../../shared/models/credentials';
 import { StorageService } from '../core/services/storage/storage.service';
@@ -15,7 +16,8 @@ export class LoginComponent {
   credentials: Credentials;
   constructor(private readonly loginService: LoginService,
     private storage: StorageService,
-    private router: Router) {
+    private router: Router,
+    private snackbar: MatSnackBar) {
     this.credentials = new Credentials();
 
   }
@@ -25,6 +27,10 @@ export class LoginComponent {
       // todo;
       this.storage.set('user', user);
       this.router.navigate(['/dashboard']);
+    }, err => {
+        this.snackbar.open("An Error occured", "Ok", {
+          duration: 4000
+        });
     })
   }
 
