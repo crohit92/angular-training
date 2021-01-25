@@ -35,6 +35,12 @@
     },
     "domain": {
       "tags": []
+    },
+    "utils": {
+      "tags": []
+    },
+    "db-schema": {
+      "tags": []
     }
   }
 }

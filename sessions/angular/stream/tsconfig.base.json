@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@stream/domain": ["libs/domain/src/index.ts"]
+      "@stream/domain": ["libs/domain/src/index.ts"],
+      "@stream/utils": ["libs/utils/src/index.ts"],
+      "@stream/db-schema": ["libs/db-schema/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
