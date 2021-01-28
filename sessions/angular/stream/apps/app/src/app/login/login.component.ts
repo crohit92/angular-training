@@ -23,14 +23,14 @@ export class LoginComponent {
   }
 
   login() {
-    this.loginService.login(this.credentials).subscribe((user) => {
-      // todo;
-      this.storage.set('user', user);
+    this.loginService.login(this.credentials).subscribe((res: any) => {
+      this.storage.set('user', res.user);
+      this.storage.set('token', res.token);
       this.router.navigate(['/dashboard']);
     }, err => {
-        this.snackbar.open("An Error occured", "Ok", {
-          duration: 4000
-        });
+      this.snackbar.open("An Error occured", "Ok", {
+        duration: 4000
+      });
     })
   }
 

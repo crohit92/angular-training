@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { DasboardCanAvtivate } from './dashboard/dashboard.guard';
 import { HomeComponent } from './dashboard/home/home.component';
 import { OverviewComponent } from './dashboard/overview/overview.component';
+import { TokenInterceptor } from './core/services/http/token-interceptor.service';
+import { ResponseMapperInterceptor } from './core/services/http/response-mapper-interceptor.service';
 @NgModule({
   declarations: [AppComponent, DashboardComponent, LoginComponent, HomeComponent, OverviewComponent],
   imports: [BrowserModule,
@@ -57,7 +59,18 @@ import { OverviewComponent } from './dashboard/overview/overview.component';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResponseMapperInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

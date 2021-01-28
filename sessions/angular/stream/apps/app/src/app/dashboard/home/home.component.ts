@@ -1,6 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Component, Inject, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'stream-home',
@@ -10,10 +13,15 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   workshops$: Observable<any>;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private readonly router: Router) {
+  }
 
   ngOnInit(): void {
-    this.workshops$ = this.http.get('./assets/workshops/workshops.json');
+    this.workshops$ = this.http.get(`${environment.apiBase}/workshops`).pipe(catchError(() => {
+      this.router.navigate(["/login"]);
+      return of([]);
+    }));
   }
 
 }
