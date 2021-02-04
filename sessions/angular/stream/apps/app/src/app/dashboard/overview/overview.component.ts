@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'apps/app/src/environments/environment';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 @Component({
@@ -12,6 +13,7 @@ import { map, takeUntil } from 'rxjs/operators';
 export class OverviewComponent implements OnInit, OnDestroy {
   workshop: any;
   destroy$ = new Subject();
+  strapiApiBase = environment.strapiApiBase;
   constructor(private http: HttpClient,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer) { }
@@ -27,7 +29,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.paramMap.pipe(takeUntil(this.destroy$)).subscribe(params => {
-      this.http.get('./assets/workshops/workshops.json').pipe(
+
+      this.http.get(`${environment.strapiApiBase}/workshops?id_eq=${params.get('id')}`).pipe(
         takeUntil(this.destroy$),
         map((workshops: any[]) => {
           return workshops.find(w => `${w.id}` === params.get('id'));

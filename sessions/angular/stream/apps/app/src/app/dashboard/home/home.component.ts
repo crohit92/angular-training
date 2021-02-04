@@ -13,15 +13,19 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   workshops$: Observable<any>;
+  strapiApiBase = environment.strapiApiBase;
   constructor(private http: HttpClient,
     private readonly router: Router) {
   }
 
   ngOnInit(): void {
-    this.workshops$ = this.http.get(`${environment.apiBase}/workshops`).pipe(catchError(() => {
-      this.router.navigate(["/login"]);
-      return of([]);
-    }));
+    this.workshops$ = this.http.get(`${environment.strapiApiBase}/workshops`)
+    // .pipe(catchError((err) => {
+    // console.log(err);
+    // this.router.navigate(["/login"]);
+    // return of([]);
+    // })
+    // );
   }
 
 }

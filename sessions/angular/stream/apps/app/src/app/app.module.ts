@@ -3,53 +3,24 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule } from '@angular/forms';
-import { DasboardCanAvtivate } from './dashboard/dashboard.guard';
-import { HomeComponent } from './dashboard/home/home.component';
-import { OverviewComponent } from './dashboard/overview/overview.component';
 import { TokenInterceptor } from './core/services/http/token-interceptor.service';
 import { ResponseMapperInterceptor } from './core/services/http/response-mapper-interceptor.service';
+// import { BgColorDirective } from './shared/directives/bg-color.directive';
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, LoginComponent, HomeComponent, OverviewComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule,
-    MatInputModule,
-    MatToolbarModule,
-    FormsModule,
-    MatButtonModule,
     HttpClientModule,
-    MatSnackBarModule,
     RouterModule.forRoot([
       {
         path: 'login',
-        component: LoginComponent
+        loadChildren: () => import('./login/login.module').then(res => res.LoginModule)
       },
       {
         path: 'dashboard',
-        component: DashboardComponent,
-        children: [
-          {
-            path: 'home',
-            component: HomeComponent
-          },
-          {
-            path: 'overview/:id',
-            component: OverviewComponent
-          },
-          {
-            path: '',
-            redirectTo: 'home',
-            pathMatch: 'full'
-          }
-        ],
-        canActivate: [DasboardCanAvtivate]
+        loadChildren: () => import('./dashboard/dashboard.module').then(res => res.DashboardModule),
+
       },
       {
         path: '',

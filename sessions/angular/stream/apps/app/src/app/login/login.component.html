@@ -15,9 +15,12 @@
           <mat-label>Password</mat-label>
           <input required [(ngModel)]="credentials.password" matInput [type]="passwordVisible?'text':'password'"
             placeholder="Enter your password">
-          <span matSuffix (click)="passwordVisible = !passwordVisible" *ngIf="!passwordVisible"
-            class="material-icons pointer"> visibility </span>
-          <span matSuffix (click)="passwordVisible = !passwordVisible" *ngIf="passwordVisible"
+          <!-- <span matSuffix (click)="passwordVisible = !passwordVisible" *ngIf="!passwordVisible"
+            class="material-icons pointer"> visibility </span> -->
+          <ng-template [streamMyIf]="!passwordVisible" matSuffix>
+            <span (click)="passwordVisible = !passwordVisible" class="material-icons pointer"> visibility </span>
+          </ng-template>
+          <span matSuffix (click)="passwordVisible = !passwordVisible" *streamMyIf="passwordVisible"
             class="material-icons pointer"> visibility_off </span>
         </mat-form-field>
       </div>

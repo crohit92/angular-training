@@ -1,5 +1,5 @@
-<div class="stream-dashboard">
-  <mat-toolbar color="primary" class="justify-content-between">
+<div streamBgColor color="#a191ba" class="stream-dashboard">
+  <mat-toolbar streamBgColor color="grey" class="justify-content-between">
     <div>
       <button mat-icon-button class="menu-toggle-btn" aria-label="Example icon-button with menu icon">
         <span class="material-icons">menu</span>
@@ -16,5 +16,7 @@
     </button> -->
     <button (click)="logout()" mat-button color="accent">Logout</button>
   </mat-toolbar>
-  <router-outlet></router-outlet>
+  <div streamBgColor color="green">
+    <router-outlet></router-outlet>
+  </div>
 </div>
