@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BgColorModule } from '../shared/directives/bg-color.module';
+import { FilterPipeModule } from '../shared/pipes/filter-pipe/filter-pipe.module';
+import { MyIfModule } from '../shared/directives/my-if/my-if-module';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { BgColorModule } from '../shared/directives/bg-color.module';
     FormsModule,
     MatButtonModule,
     BgColorModule,
+    FilterPipeModule,
     MatSnackBarModule,
+    MyIfModule,
     RouterModule.forChild([{
       path: '',
       component: DashboardComponent,

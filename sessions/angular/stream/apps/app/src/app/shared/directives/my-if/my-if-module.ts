@@ -3,7 +3,8 @@ import { MyIfDirective } from "./my-if.directive";
 
 @NgModule({
   declarations: [MyIfDirective],
-  exports: [MyIfDirective]
+  exports: [MyIfDirective],
+  // providers: [MyIfDirective]
 })
 export class MyIfModule {
 

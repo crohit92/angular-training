@@ -1,3 +1,9 @@
+<div *ngFor="let num of values | async ">{{num}}</div>
+<div>
+  <input [(ngModel)]="searchString" placeholder="Types a name to search">
+  <div *ngFor="let user of names | filterPipe: searchString">{{user.name}}</div>
+</div>
+<button (click)="addRandonName()">Add</button>
 <div class="stream-home">
   <div class="container">
     <div class="row">
