@@ -1,0 +1,62 @@
+<!-- <div class="app-signup">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <input [(ngModel)]="user.name" placeholder="Name">
+      </div>
+      <div class="col-12 col-md-6">
+        <select [(ngModel)]="user.role">
+          <option [value]="'Client'">Client</option>
+          <option [value]="'SomeOtherRole'">Some other role</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6">
+        <input [(ngModel)]="user.dob" placeholder="Date of birth" type="date">
+      </div>
+      <div class="col-12 col-md-6">
+        <input [(ngModel)]="user.username" placeholder="Username">
+      </div>
+      <div class="col-12 col-md-6">
+        <input [(ngModel)]="user.password" type="password" placeholder="Password">
+      </div>
+      <div class="col-12 col-md-6">
+        <input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm Password">
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="app-signup">
+  <div class="container mt-4" [formGroup]="userForm">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <input formControlName="name" placeholder="Name">
+      </div>
+      <div class="col-12 col-md-6">
+        <select [formControl]="userForm.get('role')">
+          <option [value]="'Client'">Client</option>
+          <option [value]="'SomeOtherRole'">Some other role</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6">
+        <input formControlName="dob" placeholder="Date of birth" type="date">
+      </div>
+      <div class="col-12 col-md-6">
+        <input formControlName="username" placeholder="Username">
+      </div>
+      <div class="col-12 col-md-6">
+        <input formControlName="password" type="password" placeholder="Password">
+      </div>
+      <button (click)="addNumber()">+</button>
+      <div class="col-12 col-md-6" *ngFor="let control of mobiles.controls;let index=index">
+        <input [formControl]="control" type="tel" placeholder="Mobile">
+        <button (click)="removeNumber(index)">-</button>
+      </div>
+      <button class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
+      <!-- <div class="col-12 col-md-6">
+        <input formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- {{user|json}} --> {{userForm?.value | json}} Is Invalid: {{userForm?.invalid}} Errors for Date:
+{{userForm?.get('dob')?.errors | json}}

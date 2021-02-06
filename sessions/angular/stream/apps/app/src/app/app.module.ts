@@ -18,6 +18,10 @@ import { ResponseMapperInterceptor } from './core/services/http/response-mapper-
         loadChildren: () => import('./login/login.module').then(res => res.LoginModule)
       },
       {
+        path: 'signup',
+        loadChildren: () => import('./signup/signup.module').then(res => res.SignupModule)
+      },
+      {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(res => res.DashboardModule),
 
