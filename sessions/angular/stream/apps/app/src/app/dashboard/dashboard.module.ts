@@ -13,6 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BgColorModule } from '../shared/directives/bg-color.module';
 import { FilterPipeModule } from '../shared/pipes/filter-pipe/filter-pipe.module';
 import { MyIfModule } from '../shared/directives/my-if/my-if-module';
+import { StreamSelectModule } from '../shared/components/stream-select/stream-select.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { MyIfModule } from '../shared/directives/my-if/my-if-module';
     FilterPipeModule,
     MatSnackBarModule,
     MyIfModule,
+    StreamSelectModule,
     RouterModule.forChild([{
       path: '',
       component: DashboardComponent,

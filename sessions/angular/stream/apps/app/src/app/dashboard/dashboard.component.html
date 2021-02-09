@@ -17,6 +17,29 @@
     <button (click)="logout()" mat-button color="accent">Logout</button>
   </mat-toolbar>
   <div streamBgColor color="green">
+    <ng-container *ngTemplateOutlet="menuTemplate"></ng-container>
+    <stream-stream-select>
+      <!-- <p label>This is the label</p> -->
+      <p class="label">This is the label</p>
+      <option>Hello</option>
+      <option>bye</option>
+    </stream-stream-select>
     <router-outlet></router-outlet>
-  </div>
+    <ng-container *ngFor="let i of [1,2,3,4]"> This is some text which will not render on the browser </ng-container>
+    <div *ngIf="true">
+      <ng-container *ngFor="let i of [1,2,3,4]"> This is some text which will not render on the browser </ng-container>
+    </div>
+    <div>
+      <ng-container *ngIf="true">
+        <ng-container *ngFor="let i of [1,2,3,4]"> This is some text which will not render on the browser
+        </ng-container>
+      </ng-container>
+    </div>
+  </div> Second instance <ng-container *ngTemplateOutlet="menuTemplate;context:{name:'Rohit',class:'BCA'}">
+  </ng-container>
 </div>
+<ng-template #menuTemplate let-firstName="name" let-grade="class">
+  <span *ngIf="firstName && grade">{{firstName}} studies in {{grade}} </span>
+  <p (click)="logout()">Logout</p>
+  <p>bye</p>
+</ng-template>
