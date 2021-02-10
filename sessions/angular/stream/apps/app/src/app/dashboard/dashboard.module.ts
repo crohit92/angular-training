@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +14,7 @@ import { BgColorModule } from '../shared/directives/bg-color.module';
 import { FilterPipeModule } from '../shared/pipes/filter-pipe/filter-pipe.module';
 import { MyIfModule } from '../shared/directives/my-if/my-if-module';
 import { StreamSelectModule } from '../shared/components/stream-select/stream-select.module';
+import { MathToken, MyMathFns, PI } from './PI-token';
 
 @NgModule({
   imports: [
@@ -48,7 +49,17 @@ import { StreamSelectModule } from '../shared/components/stream-select/stream-se
       canActivate: [DasboardCanAvtivate]
     }])
   ],
-  declarations: [DashboardComponent, HomeComponent, OverviewComponent]
+  declarations: [DashboardComponent, HomeComponent, OverviewComponent],
+  providers: [
+    {
+      provide: PI,
+      useValue: 3.14
+    },
+    {
+      provide: MathToken,
+      useClass: MyMathFns
+    }
+  ]
 })
 export class DashboardModule {
 
