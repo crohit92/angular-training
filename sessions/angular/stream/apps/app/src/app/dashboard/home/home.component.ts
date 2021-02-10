@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { FilterPipePipe } from '../../shared/pipes/filter-pipe/filter-pipe.pipe';
 import { MyIfDirective } from '../../shared/directives/my-if/my-if.directive';
-
+import { MathFns, MathToken, MyMathFns } from '../PI-token'
 @Component({
   selector: 'stream-home',
   templateUrl: './home.component.html',
@@ -27,7 +27,11 @@ export class HomeComponent implements OnInit {
   workshops$: Observable<any>;
   strapiApiBase = environment.strapiApiBase;
   values: Observable<number[]>;
-  constructor(private http: HttpClient,
+  constructor(
+    // private http: HttpClient,
+    @Inject(HttpClient) private http: any,
+    // @Inject(PI) pi: number,
+    @Inject(MathToken) mathFns: MathFns,
     private readonly router: Router,
     private readonly filter: FilterPipePipe,
     // private readonly myIf: MyIfDirective
@@ -38,6 +42,7 @@ export class HomeComponent implements OnInit {
     // });
     // this.values.subscribe();
     console.log(this.filter.transform(this.names, "M"));
+
   }
 
   addRandonName() {

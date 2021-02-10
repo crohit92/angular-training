@@ -35,6 +35,11 @@ import { ResponseMapperInterceptor } from './core/services/http/response-mapper-
     BrowserAnimationsModule
   ],
   providers: [
+    TokenInterceptor,
+    {
+      provide: TokenInterceptor,
+      useClass: TokenInterceptor
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
